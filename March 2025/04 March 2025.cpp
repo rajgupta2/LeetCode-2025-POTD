@@ -1,13 +1,20 @@
 /*
-Count Total Number of Colored Cells
-There exists an infinitely large two-dimensional grid of uncolored unit cells. You are given a positive integer n, indicating that you must do the following routine for n minutes:
-At the first minute, color any arbitrary unit cell blue.
-Every minute thereafter, color blue every uncolored cell that touches a blue cell.
-Below is a pictorial representation of the state of the grid after minutes 1, 2, and 3.
-Return the number of colored cells at the end of n minutes.
+Check if Number is a Sum of Powers of Three
+Given an integer n, return true if it is possible to represent n as the sum of distinct powers of three. Otherwise, return false.
+An integer y is a power of three if there exists an integer x such that y == 3x.
 */
-class Solution
-{
-public:
-    long long coloredCells(int n) { return 1 + (long long)n * (n - 1) * 2; }
-};
+class Solution {
+    public:
+        bool checkPowersOfThree(int n) {
+             while (n > 0) {
+                // Check if this power should be used twice
+                if (n % 3 == 2) return false;
+
+                // Divide n by 3 to move to the next greater power
+                n /= 3;
+            }
+
+            // The ternary representation of n consists only of 0s and 1s
+            return true;
+        }
+    };
